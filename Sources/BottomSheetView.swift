@@ -324,6 +324,7 @@ public final class BottomSheetView: UIView {
             handleView.heightAnchor.constraint(equalToConstant: 4),
 
             contentView.topAnchor.constraint(equalTo: handleView.bottomAnchor, constant: 8),
+            
             contentView.leadingAnchor.constraint(equalTo: leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo: trailingAnchor),
         ]
@@ -331,7 +332,7 @@ public final class BottomSheetView: UIView {
         if stretchOnResize {
             constraints.append(contentView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -bottomInset))
         } else {
-            constraints.append(contentView.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: -bottomInset))
+            constraints.append(contentView.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: 0))
         }
 
         NSLayoutConstraint.activate(constraints)
@@ -439,7 +440,7 @@ public final class BottomSheetView: UIView {
         superview.layoutIfNeeded()
     }
 
-    private func createTranslationTargets() {
+    public func createTranslationTargets() {
         guard let superview = superview else { return }
 
         translationTargets = BottomSheetCalculator.createTranslationTargets(
@@ -514,3 +515,4 @@ extension UIColor {
         return defaultColor
     }
 }
+

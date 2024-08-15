@@ -108,7 +108,7 @@ public final class BottomSheetView: UIView {
     private lazy var dimView: UIView = {
         let view = UIView(frame: .zero)
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        view.backgroundColor = UIColor(white: 0, alpha: 0.4)
+        view.backgroundColor = .clear// UIColor(white: 0, alpha: 0.4)
         view.addGestureRecognizer(tapGesture)
         view.isHidden = true
         view.alpha = 0
